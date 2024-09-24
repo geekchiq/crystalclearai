@@ -1,7 +1,6 @@
 'use client'
 
-import { Dancing_Script, Roboto } from 'next/font/google'
-
+import { Dancing_Script } from 'next/font/google'
 import Image from 'next/image'
 import SparklesIcon from '@/assets/sparkles.svg'
 import { useChat } from 'ai/react'
@@ -12,17 +11,10 @@ const dancing = Dancing_Script({
   display: 'swap'
 })
 
-const roboto = Roboto({
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap'
-})
-
 const Chat = () => {
-  const { messages, input, handleSubmit, handleInputChange, isLoading } =
-    useChat({
-      api: '/api/openai'
-    })
+  const { messages, input, handleSubmit, handleInputChange } = useChat({
+    api: '/api/openai'
+  })
 
   const renderMessages = () => {
     return (
