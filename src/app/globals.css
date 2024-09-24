@@ -9,19 +9,37 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #590059;
+    --foreground: #acac0f;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer base {
+  html {
+    font-size: 10px;
+    @media screen(lg) {
+      font-size: 15px;
+    }
+    @media screen(2xl) {
+      font-size: 20px;
+    }
+  }
+}
+
+.bg-crystal-full {
+  background-image: url('../assets/crystal.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
