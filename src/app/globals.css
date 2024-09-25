@@ -13,16 +13,50 @@
     --foreground: #acac0f;
   }
 }
+html {
+  @apply h-full;
+}
 
 body {
+  @apply h-full;
   color: var(--foreground);
   background: var(--background);
+}
+
+div#__next {
+  @apply h-full;
+}
+main {
+  @apply h-full;
+  position: fixed;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: 'transparent';
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #acac0f;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #acac0f;
 }
 
 .bg-crystal-full {

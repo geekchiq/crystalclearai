@@ -1,7 +1,8 @@
 import './globals.css'
 
+import type { Metadata, Viewport } from 'next'
+
 import { Dancing_Script } from 'next/font/google'
-import type { Metadata } from 'next'
 
 const dancing = Dancing_Script({
   subsets: ['latin'],
@@ -12,6 +13,11 @@ const dancing = Dancing_Script({
 export const metadata: Metadata = {
   title: 'Hexa',
   description: 'The Mystery Unfolds'
+}
+
+export const viewport: Viewport = {
+  maximumScale: 1,
+  userScalable: false
 }
 
 export default function RootLayout({
