@@ -5,7 +5,7 @@ interface Props {
   input: string
   onSubmit: React.FormEventHandler<HTMLFormElement>
   onChange: React.ChangeEventHandler<HTMLInputElement>
-  icon: any
+  icon: string
 }
 
 const TextBox = (props: Props) => {
