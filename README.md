@@ -1,10 +1,8 @@
 Production version: (Hexa-AI)[https://hexa-ai.vercel.app]
 
-## Getting Started
-
-First, run the development server:
-
 ```bash
+yarn install
+
 npm run dev
 # or
 yarn dev
