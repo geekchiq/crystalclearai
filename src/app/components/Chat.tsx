@@ -1,24 +1,24 @@
 'use client'
 
-import { Dancing_Script } from 'next/font/google'
 import Image from 'next/image'
 import SparklesIcon from '@/assets/sparkles.svg'
 import { useChat } from 'ai/react'
 
-const dancing = Dancing_Script({
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap'
-})
-
 const Chat = () => {
   const { messages, input, handleSubmit, handleInputChange } = useChat({
-    api: '/api/openai'
+    api: '/api/openai',
+    initialMessages: [
+      {
+        id: '',
+        role: 'assistant',
+        content: 'Hi! I am Hexa, the Mystical Whisperer. '
+      }
+    ]
   })
 
   const renderMessages = () => {
     return (
-      <div className="w-full h-full content-between">
+      <div className="w-full h-full flex-grow-0 content-between overflow-y-auto overflow-x-hidden scroll-smooth">
         {messages.map((message) => {
           console.log(message)
           return (
@@ -26,7 +26,6 @@ const Chat = () => {
               key={message.id}
               className={
                 'flex w-full py-4' +
-                dancing.className +
                 ' ' +
                 (message.role === 'user' ? 'justify-end' : 'justify-start')
               }
@@ -36,14 +35,14 @@ const Chat = () => {
                   key={message.id}
                   className="bg-fuchsia-400 p-5 min-h-12 min-w-20 max-w-screen-sm content-center rounded-lg outline-none mb-10"
                 >
-                  <p className="text-purpleme text-xl">{message.content}</p>
+                  <p className="text-purpleme text-2xl">{message.content}</p>
                 </div>
               ) : (
                 <div
                   key={message.id}
                   className="bg-fuchsia-900 p-5 min-h-12 min-w-20 max-w-screen-sm content-center rounded-lg outline-none mb-10"
                 >
-                  <p className="text-rose-100 text-xl">{message.content}</p>
+                  <p className="text-rose-100 text-2xl">{message.content}</p>
                 </div>
               )}
             </div>
@@ -55,9 +54,7 @@ const Chat = () => {
   return (
     <div className="flex flex-col w-full h-full content-between">
       <div className="flex w-full justify-center content-center mb-32">
-        <p className={'text-7xl text-center ' + dancing.className}>
-          What do you wish to seek?
-        </p>
+        <p className={'text-7xl text-center '}>What do you wish to seek?</p>
       </div>
       {renderMessages()}
       <form
@@ -67,7 +64,7 @@ const Chat = () => {
         <input
           type="text"
           placeholder="Type your question here"
-          className="w-11/12 outline-none text-black"
+          className={'w-11/12 outline-none text-black font-sans'}
           onChange={handleInputChange}
           autoComplete="off"
           autoCorrect="off"

@@ -25,18 +25,6 @@ body {
   }
 }
 
-@layer base {
-  html {
-    font-size: 10px;
-    @media screen(lg) {
-      font-size: 15px;
-    }
-    @media screen(2xl) {
-      font-size: 20px;
-    }
-  }
-}
-
 .bg-crystal-full {
   background-image: url('../assets/crystal.svg');
   background-size: contain;
