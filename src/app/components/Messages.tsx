@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 
-import { Message } from '@/types/message'
+import { Message } from 'ai/react'
 
-const Messages = ({ messages }) => {
+const Messages = (props: { messages: Message[] }) => {
   const chatRef = useRef<HTMLDivElement>(null)
 
   const scrollToBottom = () => {
@@ -14,13 +14,13 @@ const Messages = ({ messages }) => {
 
   useEffect(() => {
     scrollToBottom()
-  }, [messages])
+  }, [props.messages])
   return (
     <div
       className="w-full h-full flex-grow-0 content-between overflow-y-auto overflow-x-hidden scroll-smooth"
       ref={chatRef}
     >
-      {messages.map((message: Message) => {
+      {props.messages.map((message: Message) => {
         return (
           <div
             key={message.id}
