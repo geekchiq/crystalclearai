@@ -2,7 +2,7 @@ import Chat from './components/Chat'
 
 export default function Home() {
   return (
-    <div className="h-screen grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <div className="h-screen grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen">
       <main className="flex sm:w-full md:w-2/4 h-full bg-cover bg-crystal-full">
         <Chat />
       </main>
